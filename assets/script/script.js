@@ -6,7 +6,7 @@ let saveBtn = $(".saveBtn");
 
 let currentTime = moment().format("HH");
 
-let textSavedTask = $("#saved-task-1");
+let clearBtn = $(".clearBtn");
 
 // let timeBlocks = $("#container");
 
@@ -15,96 +15,75 @@ const endDay = 17
 
 //show the day, date and time, and have it actively update
 
-$(document).ready(function () {
-
-    console.log("Ready!");
-    $(window).on("onload", function () {
-
-
-        localStorage.getItem(tasksToSave1, $("#saved-task-1"));
-
-        let nineAmSchedule = JSON.parse(localStorage.getItem(tasksToSave1));
-
-        console.log(nineAmSchedule)
-
-        let nineAmTask = document.createElement("textarea")
-
-        nineAmTask.setAttribute("id", "nineAmTaskSchedule");
-        nineAmTaskSchedule.text(nineAmSchedule);
-
-        $("9am-schedule").JSON.parse(localStorage.getItem(tasksToSave1, $("#saved-task-1").val()));
-
-        // alert(localStorage.getItem("tasksToSave1"));
-    })
-})
-
+//set the time
 
 setInterval(function () {
 
-    currentDay.text(moment().format("[Today is] MMM DD YYYY [at] HH:mm:ss"));
+    currentDay.text(moment().format("[Today is] dddd, MMM DD YYYY [at] HH:mm:ss"));
 
 }, 1000);
+
+$(document).ready(function () {
+
+    // console.log("Ready!");
+    $(window).on("onload", function () {
+
+        colourChange();
+
+    })
+})
 
 //save the tasks
 
 function saveTasks() {
 
-    localStorage.tasksToSave1 = $("#saved-task-1").val();
-    alert("You saved some tasks!")
+    localStorage.hour9 = $(".description").val();
+    // alert("You saved some tasks!")
 }
 
 saveBtn.on("click", function () {
-    console.log("click")
-    alert("Hello world");
+    // console.log("click")
+    // alert("Hello world");
     saveTasks();
 })
 
-function displayTasks() {
+//get items out of local storage and display them in the associated description text area
 
-    if (!savedTask1) {
-        return
-    }
+$("#hour9 .description").val(localStorage.getItem("hour9"));
 
+//clear local storage
 
-    // localStorage.getItem(tasksToSave1, $("#saved-task-1"));
-
-    // $("9am-schedule").text(localStorage.getItem(tasksToSave1, $("#saved-task-1").val()));
-
-    // localStorage.getItem(tasksToSave1, $("#saved-task-1"));
-
-
-    //ALL ONE FUNCTION
-    // let nineAmSchedule = JSON.parse(localStorage.getItem(tasksToSave1));
-
-    // console.log(nineAmSchedule)
-
-    // let nineAmTask = document.createElement("h2")
-
-    // nineAmTask.setAttribute("id", "nineAmTaskSchedule");
-    // nineAmTaskSchedule.text(nineAmSchedule);
-    // $("description").append(nineAmTask);
-
-}
+clearBtn.on("click", function () {
+    // console.log("clear!")
+    // alert("Task cleared!");
+    localStorage.clear();
+})
 
 function colourChange() {
 
-    // let currentTime = moment().format("HH");
-    // console.log(currentTime);
-    // $(".hour").each(function () {
+    let currentTime = moment().hours();
+    console.log(currentTime);
 
-    //     let scheduleTime = parseInt($(".hour").prop("id"))
+    let textarea = $(".description")
 
-    //     if (scheduleTime > currentTime && scheduleTime < currentTime) {
-    //         $(".hour").addClass("future")
 
-    //     } else if (scheduleTime > currentTime && scheduleTime < currentTime) {
-    //         $(".hour").addClass("past")
-    //     } else if (scheduleTime === currentTime) {
-    //         $(".hour").addClass("present")
-    //     }
+    $(".time-block").each(function () {
 
-    // ($("#hour") === moment().val()) {
-    //     $("#hour").addClass(".present");
-    // })
-    //     })
+        let scheduleTime = parseInt($(this).attr("id").split("hour")[1]);
+
+        if (scheduleTime < currentTime) {
+            textarea.addClass("past");
+
+        } else if (scheduleTime === currentTime) {
+
+            textarea.addClass('present');
+
+        } else {
+            textarea.addClass("future");
+
+        }
+
+    })
 }
+
+colourChange();
