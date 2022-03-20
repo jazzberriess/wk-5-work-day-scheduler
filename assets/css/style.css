@@ -1,7 +1,6 @@
 body {
-  /* font-family: 'Open Sans', sans-serif; */
   font-family: 'Amatic SC', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
   background-color: #dff5e4;
 }
@@ -15,7 +14,7 @@ body {
 }
 
 textarea {
-  font-family: 'Open Sans', sans-serif;
+  font-size: 2rem;
   background: transparent;
   border: none;
   resize: none;
@@ -44,9 +43,9 @@ textarea {
   border-radius: 15px;
 }
 
+/* adjusted row height */
 .row {
   white-space: pre-wrap;
-  /* height: 80px; */
   height:auto;
   border-top: 1px solid white;
   margin-top: -10px;
@@ -73,10 +72,9 @@ textarea {
   color: white;
 }
 
+/* removed rounded borders so it sat neatly against the clear button */
 .saveBtn {
   border-left: 1px solid black;
-  /* border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px; */
   background-color: #06aed5;
   color: white;
 }

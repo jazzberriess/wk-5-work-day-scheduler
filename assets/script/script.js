@@ -57,6 +57,7 @@ function clearTasks() {
     let time = $(this).parents().attr("id");
 
     localStorage.removeItem(time, jobs);
+    retrieveTasks();
 
 }
 
