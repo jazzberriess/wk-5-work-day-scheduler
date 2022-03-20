@@ -4,14 +4,8 @@ let currentDay = $("#currentDay");
 
 let saveBtn = $(".saveBtn");
 
-let currentTime = moment().format("HH");
-
 let clearBtn = $(".clearBtn");
 
-// let timeBlocks = $("#container");
-
-const beginDay = 9
-const endDay = 17
 
 //show the day, date and time, and have it actively update
 
@@ -29,15 +23,67 @@ $(document).ready(function () {
     $(window).on("onload", function () {
 
         colourChange();
+        retrieveTasks();
 
     })
 })
 
 //save the tasks
 
+saveBtn.on("click", function () {
+    // console.log("click")
+    // alert("Hello world");
+    saveTasks();
+})
+
 function saveTasks() {
 
-    localStorage.hour9 = $(".description").val();
+    // let tasks = $(this).siblings(".description").val();
+
+    // let hours = $(this).parents().attr("id");
+
+    // localStorage.setItem(hours, tasks);
+
+    // localStorage.setitem(hour9, val(".description"));
+    // localStorage.setitem(hour10, val(".description"));
+    // localStorage.setitem(hour11, val(".description"));
+    // localStorage.setitem(hour12, val(".description"));
+    // localStorage.setitem(hour13, val(".description"));
+    // localStorage.setitem(hour14, val(".description"));
+    // localStorage.setitem(hour15, val(".description"));
+
+    // let tasks = $(this).siblings(".description").val()
+
+    // localStorage.hour9 = tasks;
+    // localStorage.hour10 = tasks;
+    // localStorage.hour11 = tasks;
+    // localStorage.hour12 = tasks;
+    // localStorage.hour13 = tasks;
+    // localStorage.hour14 = tasks;
+    // localStorage.hour15 = tasks;
+    // localStorage.hour16 = tasks;
+    // localStorage.hour17 = tasks;
+
+    localStorage.hour9 = $("#task9").val();
+    localStorage.hour10 = $("#task10").val();
+    localStorage.hour11 = $("#task11").val();
+    localStorage.hour12 = $("#task12").val();
+    localStorage.hour13 = $("#task13").val();
+    localStorage.hour14 = $("#task14").val();
+    localStorage.hour15 = $("#task15").val();
+    localStorage.hour16 = $("#task16").val();
+    localStorage.hour17 = $("#task17").val();
+
+
+    // localStorage.hour9 = $(".description").val();
+    // localStorage.hour10 = $(".description").val();
+    // localStorage.hour11 = $(".description").val();
+    // localStorage.hour12 = $(".description").val();
+    // localStorage.hour13 = $(".description").val();
+    // localStorage.hour14 = $(".description").val();
+    // localStorage.hour15 = $(".description").val();
+    // localStorage.hour16 = $(".description").val();
+    // localStorage.hour17 = $(".description").val();
     // alert("You saved some tasks!")
 }
 
@@ -49,7 +95,19 @@ saveBtn.on("click", function () {
 
 //get items out of local storage and display them in the associated description text area
 
-$("#hour9 .description").val(localStorage.getItem("hour9"));
+function retrieveTasks() {
+
+    $("#task9").val(localStorage.getItem("hour9"));
+    $("#task10").val(localStorage.getItem("hour10"));
+    $("#task11").val(localStorage.getItem("hour11"));
+    $("#task12").val(localStorage.getItem("hour12"))
+    $("#task13").val(localStorage.getItem("hour13"));;
+    $("#task14").val(localStorage.getItem("hour14"));
+    $("#task15").val(localStorage.getItem("hour15"));
+    $("#task16").val(localStorage.getItem("hour16"));
+    $("#task17").val(localStorage.getItem("hour17"));
+
+}
 
 //clear local storage
 
@@ -64,22 +122,29 @@ function colourChange() {
     let currentTime = moment().hours();
     console.log(currentTime);
 
-    let textarea = $(".description")
-
+    // let textarea = $(".description")
 
     $(".time-block").each(function () {
 
         let scheduleTime = parseInt($(this).attr("id").split("hour")[1]);
 
         if (scheduleTime < currentTime) {
-            textarea.addClass("past");
+
+            $(this).addClass("past");
+            $(this).removeClass("present");
+            $(this).removeClass("future");
 
         } else if (scheduleTime === currentTime) {
 
-            textarea.addClass('present');
+            $(this).addClass('present');
+            $(this).removeClass("past");
+            $(this).removeClass("future");
 
         } else {
-            textarea.addClass("future");
+
+            $(this).addClass("future");
+            $(this).removeClass("present");
+            $(this).removeClass("past");
 
         }
 
