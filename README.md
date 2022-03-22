@@ -8,7 +8,7 @@ During this project, I learned how to integrate external libraries/third-party A
 
 ## Usage
 
-View deployed application on GitHub Pages
+View deployed application on [GitHub Pages](https://jazzberriess.github.io/wk-5-work-day-scheduler/)
 
 Link to the [GitHub Repo](https://github.com/jazzberriess/wk-5-work-day-scheduler)
 
