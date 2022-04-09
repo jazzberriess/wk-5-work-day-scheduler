@@ -1,18 +1,27 @@
 ## Work Day Planner
 
-A simple work day planner built using jQuery, Javascript, Bootstrap, HTML and CSS to help keep you ontop of your daily tasks.
+A simple work day planner to help keep you ontop of your daily tasks from 9am to 5pm. It is colour coded to help you identify past, present and future tasks.
 
-This app makes use of localStorage to set and get memos/task list and moment.js to help keep you on track and on time.
+You can also remove tasks once they've been completed, or if they've changed.
 
-During this project, I learned how to integrate external libraries/third-party API's to help navigate the DOM and assist with a consistent style across the various elements in the page.
+This app makes use of localStorage to set and get memos/task list while moment.js helps keep you on track and on time.
 
 ## Usage
 
-View deployed application on [GitHub Pages](https://jazzberriess.github.io/wk-5-work-day-scheduler/)
+View deployed application on [GitHub Pages](https://jazzberriess.github.io/work-day-scheduler/)
 
-Link to the [GitHub Repo](https://github.com/jazzberriess/wk-5-work-day-scheduler)
+Link to the [GitHub Repo](https://github.com/jazzberriess/work-day-scheduler)
 
-Built using HTML, CSS and JavaScript, with the help of jQuery and Bootstrap.
+## Technologies used
+
+Built using:
+* HTML
+* CSS
+* JavaScript
+* localStorage web API
+* jQuery
+* Bootstrap and
+* moment.js
 
 ## Demo
 
@@ -40,9 +49,14 @@ Built using HTML, CSS and JavaScript, with the help of jQuery and Bootstrap.
 
 * [Font Awesome](https://fontawesome.com/)
 
-* Class notes and recordings from Week 5
+## License
 
-* Fellow classmates, instructor and TA's
+MIT License
 
-* AskBCS
+&copy; 2022 Christi Scappatura
+
+## Contact
+
+[Christi on GitHub](https://github.com/jazzberriess)
+
 
